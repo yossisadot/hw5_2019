@@ -78,7 +78,7 @@ class QuestionnaireAnalysis:
         the subject is above 40 years of age, and the average score in each of
         the five questions.
         """
-        gender_age=self.data.groupby(['gender', self.data.age > 40])[[
+        corr_result = self.data.groupby(['gender', self.data.age > 40])[[
             'q1','q2','q3','q4','q5']].mean()
         ########################################################################################
         # The return data is different from the 'q4_corr.csv' and the 'avg_per_group.png' even #
@@ -86,7 +86,7 @@ class QuestionnaireAnalysis:
         # results different the csv). But I checked the real grouped data and it seems that    #
         # the data from this function is accurate.                                             #
         ########################################################################################
-        return gender_age
+        return corr_result
         
 
 if __name__ == '__main__':
